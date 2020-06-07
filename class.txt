@@ -1,0 +1,2 @@
+class=StudyDay18.Reflect.Person
+method=staticMethod

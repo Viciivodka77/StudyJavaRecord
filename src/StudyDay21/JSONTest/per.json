@@ -1,0 +1,8 @@
+{
+  "name":"zs",
+  "age":"23",
+  "address":{
+    "homeAddress":"南昌",
+    "schoolAddress":"宜春"
+  }
+}
