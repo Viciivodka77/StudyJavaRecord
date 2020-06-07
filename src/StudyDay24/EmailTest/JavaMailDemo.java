@@ -31,7 +31,7 @@ public class JavaMailDemo {
         Transport transport = null;
         try {
             transport = session.getTransport();//建立链接对象
-            transport.connect("1772560342@qq.com","ldwclvuenjmjjhab");//打开链接 "密码" -> 授权密码
+            transport.connect("1772560342@qq.com","");//打开链接 "密码" -> 授权密码
             transport.sendMessage(message,message.getAllRecipients());
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
