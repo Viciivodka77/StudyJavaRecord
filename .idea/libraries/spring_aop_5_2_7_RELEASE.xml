@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="spring-aop-5.2.7.RELEASE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/spring-aop-5.2.7.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/spring-aop-5.2.7.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

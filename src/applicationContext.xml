@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop   http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!-- 配置前置通知 -->
+
+    <!-- add 方法-->
+    <bean id="student" class="StudyDay29.aopTest.Student">
+    </bean>
+
+    <!-- 通知所在的类 -->
+    <bean id="logBefore" class="StudyDay29.aopTest.LogBefore">
+    </bean>
+
+    <bean id="logAfter" class="StudyDay29.aopTest.LogAfter">
+    </bean>
+
+    <bean id="logException" class="StudyDay29.aopTest.LogException"/>
+
+    <bean id="logAround" class="StudyDay29.aopTest.LogAround"/>
+
+    <!-- 将add方法 和 通知 关联 -->
+    <aop:config>
+        <!-- 切入点 -->
+<!--        <aop:pointcut id="pointcut" expression="execution(public void StudyDay29.aopTest.Student.add()) || execution(public void StudyDay29.aopTest.Student.delete())"/>-->
+        <!-- 通知 -->
+        <aop:pointcut id="pointcut" expression="execution(public void StudyDay29.aopTest.Student.delete())"/>
+        <aop:advisor advice-ref="logAround" pointcut-ref="pointcut"/>
+
+    </aop:config>
+
+</beans>

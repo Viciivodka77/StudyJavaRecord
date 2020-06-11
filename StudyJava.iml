@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -13,5 +22,13 @@
     <orderEntry type="library" name="core-3.3.0" level="project" />
     <orderEntry type="library" name="commons-codec-1.14" level="project" />
     <orderEntry type="library" name="mail-1.4.7" level="project" />
+    <orderEntry type="library" name="spring-context-5.2.7.RELEASE" level="project" />
+    <orderEntry type="library" name="spring-aop-5.2.7.RELEASE" level="project" />
+    <orderEntry type="library" name="aspectjweaver-1.9.5" level="project" />
+    <orderEntry type="library" name="aopalliance-1.0" level="project" />
+    <orderEntry type="library" name="spring-beans-5.2.7.RELEASE" level="project" />
+    <orderEntry type="library" name="spring-core-5.2.7.RELEASE" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="spring-expression-5.2.7.RELEASE" level="project" />
   </component>
 </module>
