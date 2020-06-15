@@ -5,31 +5,45 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop   http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
+    <!--  -->
     <!-- 配置前置通知 -->
-
     <!-- add 方法-->
-    <bean id="student" class="StudyDay29.aopTest.Student">
-    </bean>
-
+<!--    <bean id="student" class="StudyDay29.aopTest.Student">-->
+<!--    </bean>-->
     <!-- 通知所在的类 -->
-    <bean id="logBefore" class="StudyDay29.aopTest.LogBefore">
-    </bean>
-
-    <bean id="logAfter" class="StudyDay29.aopTest.LogAfter">
-    </bean>
-
-    <bean id="logException" class="StudyDay29.aopTest.LogException"/>
-
-    <bean id="logAround" class="StudyDay29.aopTest.LogAround"/>
+<!--    <bean id="logBefore" class="StudyDay29.aopTest.LogBefore">-->
+<!--    </bean>-->
+<!--    <bean id="logAfter" class="StudyDay29.aopTest.LogAfter">-->
+<!--    </bean>-->
+<!--    <bean id="logException" class="StudyDay29.aopTest.LogException"/>-->
+<!--    <bean id="logAround" class="StudyDay29.aopTest.LogAround"/>-->
 
     <!-- 将add方法 和 通知 关联 -->
-    <aop:config>
+<!--    <aop:config>-->
         <!-- 切入点 -->
 <!--        <aop:pointcut id="pointcut" expression="execution(public void StudyDay29.aopTest.Student.add()) || execution(public void StudyDay29.aopTest.Student.delete())"/>-->
         <!-- 通知 -->
-        <aop:pointcut id="pointcut" expression="execution(public void StudyDay29.aopTest.Student.delete())"/>
-        <aop:advisor advice-ref="logAround" pointcut-ref="pointcut"/>
+<!--        <aop:pointcut id="pointcut" expression="execution(public void StudyDay29.aopTest.Student.delete())"/>-->
+<!--        <aop:advisor advice-ref="logAround" pointcut-ref="pointcut"/>-->
 
+<!--    </aop:config>-->
+
+
+
+
+
+    <!--将准备转为通知的类 纳入ioc容器中-->
+    <bean id="logSchema" class="StudyDay31.aop.LogSchema"/>
+    <bean id="student" class="StudyDay31.aop.Student"/>
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(public * StudyDay31.aop.Student.add())"/>
+        <!-- Schema方式-->
+        <aop:aspect ref="logSchema">
+            <aop:before arg-names="jp"  pointcut-ref="pointcut" method="before"/>
+            <aop:after-returning method="afterReturning" arg-names="jp,returnValue" pointcut-ref="pointcut" returning="returnValue"/>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" arg-names="jp,throwable" throwing="throwable"/>
+            <aop:around method="invoke" arg-names="jp" pointcut-ref="pointcut"/>
+        </aop:aspect>
     </aop:config>
 
 </beans>
